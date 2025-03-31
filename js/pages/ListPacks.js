@@ -4,6 +4,7 @@ import { score } from "../score.js";
 
 import Spinner from "../components/Spinner.js";
 import LevelAuthors from "../components/List/LevelAuthors.js";
+import { store } from '../main.js';
 
 export default {
     components: {
@@ -129,29 +130,8 @@ export default {
 		},
     },
     async mounted() {
-        this.packs = await fetchPacks();
-        this.selectedPackLevels = await fetchPackLevels(
-            this.packs[this.selected].name
-        );
-
-        // Error handling
-         if (!this.packs) {
-             this.errors = [
-                 "Failed to load list. Retry in a few minutes or notify list staff.",
-             ];
-         } else {
-             this.errors.push(
-                 ...this.selectedPackLevels
-                     .filter(([_, err]) => err)
-                     .map(([_, err]) => {
-                         return `Failed to load level. (${err}.json)`;
-                     })
-             );
-         }
-
-        // Hide loading spinner
-        this.loading = false;
-        this.loadingPack = false;
+        store.pack = this;
+        await resetPacks();
     },
     methods: {
         async switchLevels(i) {
@@ -184,3 +164,29 @@ export default {
         getFontColour,
     },
 };
+
+export async function resetPacks() {
+    store.pack.packs = await fetchPacks();
+    store.pack.selectedPackLevels = await fetchPackLevels(
+        store.pack.packs[store.pack.selected].name
+    );
+
+    // Error handling
+        if (!store.pack.packs) {
+            store.pack.errors = [
+                "Failed to load list. Retry in a few minutes or notify list staff.",
+            ];
+        } else {
+            store.pack.errors.push(
+                ...store.pack.selectedPackLevels
+                    .filter(([_, err]) => err)
+                    .map(([_, err]) => {
+                        return `Failed to load level. (${err}.json)`;
+                    })
+            );
+        }
+
+    // Hide loading spinner
+    store.pack.loading = false;
+    store.pack.loadingPack = false;
+}

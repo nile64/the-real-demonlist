@@ -3,7 +3,7 @@
     --color-on-background: black;
     --color-background-hover: #eee;
     --color-on-background-hover: black;
-    --color-primary: #6a329f;
+    --color-primary: #7d7dff;
     --color-primary-disabled: #20124d;
     --color-on-primary: white;
     --color-error: #de0000;
@@ -16,7 +16,7 @@
     --color-on-background: white;
     --color-background-hover: #27262c;
     --color-on-background-hover: white;
-    --color-primary: #20124d;
+    --color-primary: #5252a5;
     --color-primary-disabled: #20124d;
     --color-on-primary: white;
     --color-error: #de0000;
@@ -79,9 +79,9 @@ header.surface {
     }
 }
 header .logo {
-    justify-self: end;
+    justify-self: left;
     align-self: center;
-    display: flex;
+    display: inline;
     align-items: flex-end;
     gap: 1rem;
 }

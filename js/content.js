@@ -1,19 +1,23 @@
 import { round, score } from './score.js';
+import { resetList } from './pages/List.js';
+import { resetLeaderboard } from './pages/Leaderboard.js';
+import { resetPacks } from './pages/ListPacks.js';
 
 /**
  * Path to directory containing `_list.json` and all levels
  */
 const dir = '/data';
+var theList = "dl"
 
 export async function fetchList() {
-    const listResult = await fetch(`${dir}/_list.json`);
-    const packResult = await fetch(`${dir}/_packlist.json`);
+    const listResult = await fetch(`${dir}/${theList}/_list.json`);
+    const packResult = await fetch(`${dir}/${theList}/_packlist.json`);
     try {
         const list = await listResult.json();
         const packsList = await packResult.json();
         return await Promise.all(
             list.map(async (path, rank) => {
-                const levelResult = await fetch(`${dir}/${path}.json`);
+                const levelResult = await fetch(`${dir}/${theList}/${path}.json`);
                 try {
                     const level = await levelResult.json();
                     let packs = packsList.filter((x) =>
@@ -54,7 +58,7 @@ export async function fetchEditors() {
 
 export async function fetchLeaderboard() {
     const list = await fetchList();
-    const packResult = await (await fetch(`${dir}/_packlist.json`)).json();
+    const packResult = await (await fetch(`${dir}/${theList}/_packlist.json`)).json();
     const scoreMap = {};
     const errs = [];
     list.forEach(([level, err], rank) => {
@@ -153,7 +157,7 @@ export async function fetchLeaderboard() {
 
 export async function fetchPacks() {
     try {
-        const packResult = await fetch(`${dir}/_packlist.json`);
+        const packResult = await fetch(`${dir}/${theList}/_packlist.json`);
         const packsList = await packResult.json();
         return packsList;
     } catch {
@@ -162,13 +166,13 @@ export async function fetchPacks() {
 }
 
 export async function fetchPackLevels(packname) {
-    const packResult = await fetch(`${dir}/_packlist.json`);
+    const packResult = await fetch(`${dir}/${theList}/_packlist.json`);
     const packsList = await packResult.json();
     const selectedPack = await packsList.find((pack) => pack.name == packname);
     try {
         return await Promise.all(
             selectedPack.levels.map(async (path, rank) => {
-                const levelResult = await fetch(`${dir}/${path}.json`);
+                const levelResult = await fetch(`${dir}/${theList}/${path}.json`);
                 try {
                     const level = await levelResult.json();
                     return [
@@ -191,4 +195,12 @@ export async function fetchPackLevels(packname) {
         console.error(`Failed to load packs.`, e);
         return null;
     }
+}
+
+export async function changeList(){
+    theList = document.getElementById("list_dropdown").value;
+    console.log("theList: " + theList.toString() + ", dropdown value: " + document.getElementById("list_dropdown").value.toString());
+    resetList();
+    resetLeaderboard();
+    resetPacks();
 }

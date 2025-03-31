@@ -99,7 +99,6 @@ export default {
                     <div class="errors" v-show="errors.length > 0">
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
-                    <p class="promote">Check out our <a style="text-decoration:underline" href="https://www.lorer.in" target="_blank">Main Page</a>.</p>
                     <template v-if="editors">
                         <h3>List Editors</h3>
                         <ol class="editors">
@@ -153,29 +152,8 @@ export default {
 		},
 	},
 	async mounted() {
-		// Hide loading spinner
-		this.list = await fetchList();
-		this.editors = await fetchEditors();
-
-		// Error handling
-		if (!this.list) {
-			this.errors = [
-				'Failed to load list. Retry in a few minutes or notify list staff.',
-			];
-		} else {
-			this.errors.push(
-				...this.list
-					.filter(([_, err]) => err)
-					.map(([_, err]) => {
-						return `Failed to load level. (${err}.json)`;
-					}),
-			);
-			if (!this.editors) {
-				this.errors.push('Failed to load list editors.');
-			}
-		}
-
-		this.loading = false;
+		store.list = this;
+        await resetList();
 	},
 	methods: {
 		embed,
@@ -183,3 +161,33 @@ export default {
         getFontColour
 	},
 };
+
+export async function resetList() {
+    console.log("resetting");
+    
+    store.list.loading = true;
+
+    // Hide loading spinner
+    store.list.list = await fetchList();
+    store.list.editors = await fetchEditors();
+
+    // Error handling
+    if (!store.list.list) {
+        store.list.errors = [
+            "Failed to load list. Retry in a few minutes or notify list staff.",
+        ];
+    } else {
+        store.list.errors.push(
+            ...store.list.list
+                .filter(([_, err]) => err)
+                .map(([_, err]) => {
+                    return `Failed to load level. (${err}.json)`;
+                })
+        );
+        if (!store.list.editors) {
+            store.list.errors.push("Failed to load list editors.");
+        }
+    }
+
+    store.list.loading = false;
+}

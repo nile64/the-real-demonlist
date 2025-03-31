@@ -4,12 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1024" />
-    <meta property="og:title" content="The LorerGDPS Demonlist" />
-    <meta property="og:description"
-        content="The list that Lists" />
-    <meta property="og:url" content="https://demonlist.lorer.in/" />
-    <meta property="og:image" content="/tsl_icon.png" />
-    <title>The LorerGDPS DemonList</title>
+
+    <title>TheRealDemonlist</title>
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,16 +23,25 @@
     <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
     <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js"></script>
     <script type="module" src="/js/main.js"></script>
+    <script type="module">
+        import { changeList } from "./js/content.js";
+
+        export function onChangeList(){
+            changeList();
+        }
+
+        window.onChangeList = onChangeList;
+    </script>
 </head>
 <body id="app">
     <div class="root" :class="{ dark: store.dark, shitty: store.shitty }">
         <header class="surface">
             <div class="logo">
-                <img v-if="store.shitty" src="assets/Aprtil-logo.png" alt="o am not going to fix" />
-                <div v-else class="logo">
-                    <h2>LorerGDPS</h2>
-                    <p>v2.101</p>
-                </div>
+                <img src="assets/April-logo.png" alt="o am not going to fix" />
+                <!--<div v-else class="logo">
+                    <h2>The Real Demonlist</h2>
+                    <p>pointercreate</p>
+                </div>-->
             </div>
             <nav class="nav">
                 <router-link class="nav__tab" to="/">
@@ -57,7 +62,7 @@
                         @click.prevent="store.toggleShitty()"
                     >
                         <img
-                            src="https://cdn.discordapp.com/attachments/715267286004531283/1091275438308982825/emoji.png"
+                            src="https://cdn.discordapp.com/emojis/1340545459269402756.webp?size=96"
                             alt="Shitty Mode"
                         />
                     </button>
@@ -76,6 +81,10 @@
                     <a class="nav__cta type-label-lg"
                         href="https://discord.com/invite/vxW5eUdcGh"
                         target="_blank">Submit Record</a>
+                    <select onchange="onChangeList()" class="nav__switch" id="list_dropdown">
+                        <option value="dl">Demonlist</option>
+                        <option value="cl">Challenge List</option>
+                    </select>
                 </div>
             </nav>
         </header>

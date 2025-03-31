@@ -60,7 +60,7 @@
 
 /* Shitty */
 
-.shity .nav .nav__tab.router-link-active {
+.shitty .nav .nav__tab.router-link-active {
     border-color: transparent;
     color: orange;
 }
@@ -76,4 +76,17 @@
     color: black;
     border-radius: 0;
     border: 4px outset #eee;
+}
+
+.nav .nav__actions .nav__switch{
+    margin-left: 1rem;
+    padding: 1rem;
+    color: white;
+    font-family: "Lexend Deca", sans-serif;
+    border: 0;
+    background: 0;
+}
+.nav .nav__actions .nav__switch option {
+    color: black;
+    font-family: "Lexend Deca", sans-serif;
 }

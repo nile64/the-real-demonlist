@@ -119,6 +119,7 @@ export default {
                     <p>We also allow effect layouts, as long as they are structured of course.</p>
                     <p>The minimum standard for decoration we will allow is the level <b>xo by KrmaL</b>.</p>
                     <p>A level must not be unfair, such as random triggers or inescapable death.</p>
+                    <p>A level must not be too hard compared to the current top 1. We want a steady top 1 progression--not a massive jump from entry level extreme to mainlist.</p>
                     <h3> Record Submission Requirements </h3>
                     <p>FPS Bypass is allowed, but physics bypass is not. You must use the default 240 TPS.</p>
                     <p>CBF is allowed.</p>

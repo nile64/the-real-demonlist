@@ -1,7 +1,12 @@
 [
-{
-        "name": "OG Pack",
-        "levels": ["Sodium Nitrate"],
-        "colour": "#f24848"
+    {
+        "name": "Top 1 Pack",
+        "levels": ["Gaper Bonezoid"],
+        "colour": "#f75151"
+    },
+    {
+        "name": "Gp0 Pack",
+        "levels": ["Sodium Nitrate", "937", "Free VBucks EXE", "Gaper Bonezoid"],
+        "colour": "#ff780a"
     }
 ]

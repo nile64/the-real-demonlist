@@ -8,6 +8,7 @@ import LevelAuthors from '../components/List/LevelAuthors.js';
 
 const roleIconMap = {
 	owner: 'crown',
+    kreo: 'kreo',
 	admin: 'user-gear',
 	seniormod: 'user-shield',
 	mod: 'user-lock',
@@ -100,7 +101,7 @@ export default {
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
                     <template v-if="editors">
-                        <h3>List Editors</h3>
+                        <h2>List Editors</h2>
                         <ol class="editors">
                             <li v-for="editor in editors">
                                 <img :src="\`/assets/\${roleIconMap[editor.role]}\${(store.dark || store.shitty) ? '-dark' : ''}.svg\`" :alt="editor.role">
@@ -109,20 +110,33 @@ export default {
                             </li>
                         </ol>
                     </template>
-                    <h3> Submission Requirements </h3>
-                    <p> When submitting a record, please ensure that you have the following:</p>
-                    <p> - A complete playthrough of the level from 0-100 with no cuts (if you make cuts in your submitted video, include raw footage that doesn't have them) </p>
-                    <p> - A decent amount of previous attempts (A single death at 1% is not sufficient, try to get somewhat far into the level. Everplay records are exempt from this.) </p>
-                    <p> - End stats (The whole box must appear for at least one frame) </p>
-                    <p> - Cheat Indicator (If you are using a mod menu that supports one, like Megahack v7) </p>
-                    <p> - Fps/tps indicator (For mod menus that support one) </p>
-                    <p> - In-game source audio/Clicks (Either is fine, however both are strongly recommended. If you don't have either in your submission video, attach raw footage that does) </p>
-                    <p> Refer to <a href="https://docs.google.com/spreadsheets/d/1evE4nXATxRAQWu2Ajs54E6cVUqHBoSid8I7JauJnOzg/edit#gid=0" style="text-decoration: underline;">this sheet</a> for a complete list of allowed mods.</p>
-                    <p> Please also check for the following:</p>
-                    <p> - Make sure you beat the level displayed on the site (for reference, check the level ID to ensure you're playing the correct level</p>
-                    <p> - Do not use secret routes or bug routes</p>
-                    <p> - Do not use easy modes, only a record of the unmodified level qualifies</p>
-                    <p> - Once a level falls onto the Legacy List, we accept records for it for 24 hours after it falls off, then afterwards we never accept records for said level</p>
+                    <h2> List Rules </h2>
+                    <p><i>read this now</i></p>
+                    <h3> Level Standards / Rules </h3>
+                    <p>For a level to be added, 50% of the creators and the verifier must be in the server.</p>
+                    <p>A level must have decent, playable gameplay at the very minimum.</p>
+                    <p>A level must be of decent quality in decoration too. The level must be structured and have decent quality.</p>
+                    <p>We also allow effect layouts, as long as they are structured of course.</p>
+                    <p>The minimum standard for decoration we will allow is the level <b>xo by KrmaL</b>.</p>
+                    <p>A level must not be unfair, such as random triggers or inescapable death.</p>
+                    <h3> Record Submission Requirements </h3>
+                    <p>FPS Bypass is allowed, but physics bypass is not. You must use the default 240 TPS.</p>
+                    <p>CBF is allowed.</p>
+                    <p>Have audible click sounds throughout the entire video.</p>
+                    <p>If you edit your record video at all, please provide raw footage to us in your submission.</p>
+                    <p>Your recording must also include the previous death.</p>
+                    <p>If you beat it on the first attempt, you must include footage of you pressing play and loading into the level.</p>
+                    <p>Cheating in any way is not permitted. This includes:</p>
+                    <p>- Noclip.</p>
+                    <p>- Secret Ways.</p>
+                    <p>- Macros or Replay Bot.</p>
+                    <p>- Beating the level on a modified version of the level.</p>
+                    <p>If you need to use an LDM, request that the creator of the level add an LDM to the level. Making one yourself is not permitted as that is modification of the level.</p>
+                    <h3> More Info </h3>
+                    <p>The top 25 is considered mainlist.</p>
+                    <p>The top 50 is considered extended list.</p>
+                    <p>Everything below that is considered legacy.</p>
+                    <p>New records for legacy levels are not accepted whatsoever.</p>
                 </div>
             </div>
         </main>

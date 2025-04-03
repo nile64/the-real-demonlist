@@ -5,8 +5,13 @@
         "colour": "#f75151"
     },
     {
-        "name": "1.9 Pack",
-        "levels": ["937", "Free VBucks EXE", "Gaper Bonezoid", "Retro Adventure"],
+        "name": "1.9 Pack I",
+        "levels": ["937", "Free VBucks EXE", "Gaper Bonezoid"],
+        "colour": "#727272"
+    },
+    {
+        "name": "1.9 Pack II",
+        "levels": ["Retro Adventure", "Freaky Dimensions"],
         "colour": "#727272"
     },
     {

@@ -9,5 +9,11 @@
     "password": "Free Copy",
     "percentToQualify": 63,
     "records": [
+        {
+            "user": "Gp0",
+            "link": "https://www.youtube.com/watch?v=RbtpK0YHBpc",
+            "percent": 100,
+            "hz": "CBF"
+        }
     ]
 }

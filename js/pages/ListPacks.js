@@ -113,7 +113,7 @@ export default {
         selectedPackLevels: [],
         loading: true,
         loadingPack: true,
-        toggledShowcase: false,
+        toggledShowcase: true,
     }),
     computed: {
         pack() {

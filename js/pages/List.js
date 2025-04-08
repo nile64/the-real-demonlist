@@ -8,8 +8,8 @@ import LevelAuthors from '../components/List/LevelAuthors.js';
 
 const roleIconMap = {
 	owner: 'crown',
-    kreo: 'kreo',
 	admin: 'user-gear',
+    kreo: 'kreo',
 	seniormod: 'user-shield',
 	mod: 'user-lock',
     trial: 'user-check',

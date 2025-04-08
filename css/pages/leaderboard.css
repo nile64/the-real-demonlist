@@ -113,7 +113,7 @@
 
 .shitty .page-leaderboard .board .user button:hover {
     background-color: #eee;
-    color: black !important;
+    color: orange !important;
 }
 
 .shitty .page-leaderboard .board .user.active button {

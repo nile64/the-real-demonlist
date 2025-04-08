@@ -157,7 +157,7 @@
 
 .shitty .page-list .list .level button:hover {
     background-color: #eee;
-    color: black !important;
+    color: blue !important;
 }
 
 .shitty .page-list .list .level.active button {

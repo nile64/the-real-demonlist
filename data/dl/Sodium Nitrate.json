@@ -9,5 +9,11 @@
     "password": "Free Copy",
     "percentToQualify": 70,
     "records": [
+        {
+            "user": "Z",
+            "link": "https://www.youtube.com/watch?v=HKFg2pPypl4",
+            "percent": 100,
+            "hz": "240"
+        }
     ]
 }

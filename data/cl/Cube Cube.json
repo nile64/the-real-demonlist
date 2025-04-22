@@ -9,5 +9,11 @@
     "password": "Free Copy",
     "percentToQualify": 100,
     "records": [
+        {
+            "user": "Meatballmoose",
+            "link": "https://youtu.be/Sy44cHeiyts?si=5EYSHNJJ8UZ8coct&t=381",
+            "percent": 100,
+            "hz": "CBF"
+        }
     ]
 }
